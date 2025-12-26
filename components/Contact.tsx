@@ -1,9 +1,8 @@
-
 import React from 'react';
-import { CONTACT_INFO } from '../constants';
-import { useLanguage } from '../context/LanguageContext';
-import ContactItem from './ContactItem';
-import ContactForm from './ContactForm';
+import { CONTACT_INFO } from '../constants.tsx';
+import { useLanguage } from '../context/LanguageContext.tsx';
+import ContactItem from './ContactItem.tsx';
+import ContactForm from './ContactForm.tsx';
 
 const Contact: React.FC = () => {
   const { t } = useLanguage();

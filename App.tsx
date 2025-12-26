@@ -1,17 +1,16 @@
-
 import React, { useState } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import VehicleFocus from './components/VehicleFocus';
-import VideoSection from './components/VideoSection';
-import About from './components/About';
-import TeamSection from './components/TeamSection';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import CookieBanner from './components/CookieBanner';
-import WhatsAppButton from './components/WhatsAppButton';
-import LegalModal from './components/LegalModal';
+import Navbar from './components/Navbar.tsx';
+import Hero from './components/Hero.tsx';
+import Services from './components/Services.tsx';
+import VehicleFocus from './components/VehicleFocus.tsx';
+import VideoSection from './components/VideoSection.tsx';
+import About from './components/About.tsx';
+import TeamSection from './components/TeamSection.tsx';
+import Contact from './components/Contact.tsx';
+import Footer from './components/Footer.tsx';
+import CookieBanner from './components/CookieBanner.tsx';
+import WhatsAppButton from './components/WhatsAppButton.tsx';
+import LegalModal from './components/LegalModal.tsx';
 
 const App: React.FC = () => {
   const [showLegal, setShowLegal] = useState<boolean>(false);

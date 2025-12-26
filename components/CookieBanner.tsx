@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from '../context/LanguageContext.tsx';
 
 const CookieBanner: React.FC = () => {
   const [visible, setVisible] = useState(false);

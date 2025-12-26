@@ -1,7 +1,6 @@
-
 import React from 'react';
-import { CONTACT_INFO } from '../constants';
-import { useLanguage } from '../context/LanguageContext';
+import { CONTACT_INFO } from '../constants.tsx';
+import { useLanguage } from '../context/LanguageContext.tsx';
 
 const WhatsAppButton: React.FC = () => {
   const { t } = useLanguage();

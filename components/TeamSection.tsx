@@ -1,7 +1,6 @@
-
 import React from 'react';
-import { IMAGES } from '../constants';
-import { useLanguage } from '../context/LanguageContext';
+import { IMAGES } from '../constants.tsx';
+import { useLanguage } from '../context/LanguageContext.tsx';
 
 const TeamSection: React.FC = () => {
   const { t } = useLanguage();
