@@ -19,17 +19,17 @@ const Navbar: React.FC<NavbarProps> = ({ onShowLegal }) => {
   ];
 
   const LanguageSwitcher = () => (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-2 sm:gap-3">
       <button 
         onClick={() => setLang('es')}
-        className={`w-7 h-5 flex items-center justify-center rounded overflow-hidden border transition-all ${lang === 'es' ? 'border-tramisur-gold scale-110 shadow-sm' : 'border-transparent opacity-60 hover:opacity-100'}`}
+        className={`w-6 h-4 sm:w-7 sm:h-5 flex items-center justify-center rounded overflow-hidden border transition-all ${lang === 'es' ? 'border-tramisur-gold scale-110 shadow-sm' : 'border-transparent opacity-60 hover:opacity-100'}`}
         title="Español"
       >
         <img src="https://flagcdn.com/es.svg" alt="ES" className="w-full h-full object-cover" />
       </button>
       <button 
         onClick={() => setLang('en')}
-        className={`w-7 h-5 flex items-center justify-center rounded overflow-hidden border transition-all ${lang === 'en' ? 'border-tramisur-gold scale-110 shadow-sm' : 'border-transparent opacity-60 hover:opacity-100'}`}
+        className={`w-6 h-4 sm:w-7 sm:h-5 flex items-center justify-center rounded overflow-hidden border transition-all ${lang === 'en' ? 'border-tramisur-gold scale-110 shadow-sm' : 'border-transparent opacity-60 hover:opacity-100'}`}
         title="English"
       >
         <img src="https://flagcdn.com/gb.svg" alt="EN" className="w-full h-full object-cover" />
@@ -40,55 +40,62 @@ const Navbar: React.FC<NavbarProps> = ({ onShowLegal }) => {
   return (
     <nav className="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-24">
+        <div className="flex justify-between items-center h-20 md:h-24">
+          {/* Logo Section */}
           <div className="flex items-center">
             <a href="#inicio" className="flex items-center gap-2 group">
               <img 
                 src={IMAGES.logo} 
                 alt="Tramisur Logo" 
-                className="h-14 w-auto object-contain transform group-hover:scale-105 transition-transform duration-300"
+                className="h-10 md:h-14 w-auto object-contain transform group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="flex flex-col leading-none border-l border-slate-200 pl-3">
-                <span className="text-2xl font-bold text-tramisur-blue font-serif uppercase tracking-tight">
+              <div className="hidden sm:flex flex-col leading-none border-l border-slate-200 pl-3">
+                <span className="text-lg md:text-2xl font-bold text-tramisur-blue font-serif uppercase tracking-tight">
                   Tramisur
                 </span>
-                <span className="text-[10px] font-black text-tramisur-gold uppercase tracking-[0.45em] mt-1">
+                <span className="text-[8px] md:text-[10px] font-black text-tramisur-gold uppercase tracking-[0.45em] mt-1">
                   Marbella
                 </span>
               </div>
             </a>
           </div>
           
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-slate-600 hover:text-tramisur-blue font-semibold transition-colors uppercase tracking-widest text-[11px]"
-              >
-                {link.name}
-              </a>
-            ))}
+          {/* Desktop & Tablet Navigation */}
+          <div className="hidden md:flex items-center lg:space-x-8 md:space-x-4">
+            <div className="flex items-center lg:space-x-8 md:space-x-4 pr-2">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-slate-600 hover:text-tramisur-blue font-bold transition-colors uppercase tracking-widest text-[9px] lg:text-[11px] whitespace-nowrap"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
             
             <div className="w-px h-6 bg-slate-200"></div>
             
             <LanguageSwitcher />
 
+            <div className="hidden lg:block w-px h-6 bg-slate-200"></div>
+
             <a 
               href="#contacto"
-              className="bg-tramisur-blue text-white px-7 py-2.5 rounded-full font-bold hover:bg-tramisur-dark transition-all transform hover:scale-105 shadow-lg text-[11px] tracking-widest uppercase"
+              className="bg-tramisur-blue text-white px-4 lg:px-7 py-2 md:py-2.5 rounded-full font-bold hover:bg-tramisur-dark transition-all transform hover:scale-105 shadow-lg text-[9px] lg:text-[11px] tracking-widest uppercase whitespace-nowrap"
             >
               {t.nav.quote}
             </a>
           </div>
 
-          <div className="md:hidden flex items-center gap-4">
+          {/* Mobile UI (Hamburger) */}
+          <div className="md:hidden flex items-center gap-3">
             <LanguageSwitcher />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-slate-700 p-2"
+              className="text-slate-700 p-1"
             >
-              <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
@@ -100,9 +107,9 @@ const Navbar: React.FC<NavbarProps> = ({ onShowLegal }) => {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu Overlay */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-slate-100 shadow-xl">
+        <div className="md:hidden bg-white border-t border-slate-100 shadow-xl animate-fade-in">
           <div className="px-4 pt-2 pb-6 space-y-1">
             {navLinks.map((link) => (
               <a
