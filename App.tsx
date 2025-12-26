@@ -11,12 +11,14 @@ import Footer from './components/Footer.tsx';
 import CookieBanner from './components/CookieBanner.tsx';
 import WhatsAppButton from './components/WhatsAppButton.tsx';
 import LegalModal from './components/LegalModal.tsx';
+import SEOHelmet from './components/SEOHelmet.tsx';
 
 const App: React.FC = () => {
   const [showLegal, setShowLegal] = useState<boolean>(false);
 
   return (
     <div className="min-h-screen flex flex-col relative bg-white">
+      <SEOHelmet />
       <Navbar onShowLegal={() => setShowLegal(true)} />
       
       <main className="flex-grow">
